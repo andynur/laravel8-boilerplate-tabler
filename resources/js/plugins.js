@@ -54,6 +54,7 @@ $(function () {
      */
     $('body').on('submit', 'form[name=delete-item]', function(e) {
         e.preventDefault();
+        console.log('masook');
 
         Swal.fire({
             title: 'Are you sure you want to delete this item?',

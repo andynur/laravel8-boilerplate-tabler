@@ -34,23 +34,23 @@
     @endif
 
     @if ($user->id !== $logged_in_user->id && !$user->isMasterAdmin() && $logged_in_user->hasAllAccess())
-        <x-utils.delete-button :href="route('admin.auth.user.destroy', $user)" />
+        <x-utils.delete-button :href="route('admin.auth.user.destroy', $user)" index="{{ $user->id }}" />
     @endif
 
     {{-- The logged in user is the master admin, and the row is the master admin. Only the master admin can do anything to themselves --}}
     @if ($user->isMasterAdmin() && $logged_in_user->isMasterAdmin())
         <div class="dropdown d-inline-block">
-            <a class="btn btn-sm btn-secondary dropdown-toggle" id="moreMenuLink" href="#" role="button" data-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false">
+            {{-- <a class="btn btn-sm btn-secondary dropdown-toggle" id="moreMenuLink" href="#" role="button" data-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false">
                 @lang('More')
-            </a>
+            </a> --}}
 
-            <div class="dropdown-menu" aria-labelledby="moreMenuLink">
+            {{-- <div class="dropdown-menu" aria-labelledby="moreMenuLink">
                 <x-utils.link
                     :href="route('admin.auth.user.change-password', $user)"
                     class="dropdown-item"
                     :text="__('Change Password')"
                     permission="admin.access.user.change-password" />
-            </div>
+            </div> --}}
         </div>
     @elseif (
         !$user->isMasterAdmin() && // This is not the master admin
@@ -64,7 +64,7 @@
             $logged_in_user->can('admin.access.user.deactivate')
         )
     )
-        <div class="dropdown d-inline-block">
+        {{-- <div class="dropdown d-inline-block">
             <a class="btn btn-sm btn-secondary dropdown-toggle" id="moreMenuLink" href="#" role="button" data-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false">
                 @lang('More')
             </a>
@@ -105,6 +105,6 @@
                     </x-utils.form-button>
                 @endif
             </div>
-        </div>
+        </div> --}}
     @endif
 @endif

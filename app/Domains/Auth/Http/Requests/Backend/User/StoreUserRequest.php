@@ -32,6 +32,7 @@ class StoreUserRequest extends FormRequest
         return [
             'type' => ['required', Rule::in([User::TYPE_ADMIN, User::TYPE_USER])],
             'name' => ['required', 'max:100'],
+            'username' => ['required', 'max:30', Rule::unique('users')],
             'email' => ['required', 'max:255', 'email', Rule::unique('users')],
             'password' => ['max:100', PasswordRules::register($this->email)],
             'active' => ['sometimes', 'in:1'],

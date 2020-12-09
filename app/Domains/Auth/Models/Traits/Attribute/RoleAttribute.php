@@ -17,7 +17,7 @@ trait RoleAttribute
         }
 
         if (! $this->permissions->count()) {
-            return 'None';
+            return '-';
         }
 
         return collect($this->getPermissionDescriptions())

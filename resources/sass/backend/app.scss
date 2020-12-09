@@ -1,5 +1,49 @@
-@import "../global";
+// @import "../global";
 
 // Coreui
-@import '~@coreui/coreui/scss/coreui';
-@import '~@coreui/icons/css/free.min.css';
+// @import '~@coreui/coreui/scss/coreui';
+// @import '~@coreui/icons/css/free.min.css';
+
+@import '../../../public/theme/css/tabler.min.css';
+// @import '../../../public/theme/css/tabler-flags.min.css';
+// @import '../../../public/theme/css/tabler-payments.min.css';
+// @import '../../../public/theme/css/tabler-vendors.min.css';
+@import '../../../public/theme/css/demo.min.css';
+
+
+.livewire-per-page {
+    width: 5.2rem;
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.livewire-sorting-icons {
+    width: 1rem;
+    height: 1rem;
+}
+
+.btn-sm .icon {
+    width: 1rem;
+    height: 1rem;
+    margin: 0 .2rem 0 0;
+}
+
+.avatar {
+    border-radius: 50px;
+}
+
+.table-responsive {
+    margin: 1rem -1.5rem;
+}
+
+.alert {
+    margin-left: -2px;
+    margin-right: -8px;
+}
+
+@media(min-width: 400px) {
+    .livewire-search {
+        width: 50%;
+        float: right;
+    }
+}

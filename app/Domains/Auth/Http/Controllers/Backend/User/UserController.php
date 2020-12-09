@@ -129,8 +129,12 @@ class UserController extends Controller
      */
     public function destroy(DeleteUserRequest $request, User $user)
     {
-        $this->userService->delete($user);
+        // $this->userService->delete($user);
 
-        return redirect()->route('admin.auth.user.deleted')->withFlashSuccess(__('The user was successfully deleted.'));
+        // return redirect()->route('admin.auth.user.deleted')->withFlashSuccess(__('The user was successfully deleted.'));
+
+        $this->userService->destroy($user); // enable permanent delete
+
+        return back()->withFlashSuccess(__('The user was successfully deleted.'));
     }
 }

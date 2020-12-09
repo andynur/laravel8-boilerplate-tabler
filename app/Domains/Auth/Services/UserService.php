@@ -85,6 +85,7 @@ class UserService extends BaseService
             try {
                 $user = $this->createUser([
                     'name' => $info->name,
+                    'username' => $info->username,
                     'email' => $info->email,
                     'provider' => $provider,
                     'provider_id' => $info->id,
@@ -117,6 +118,7 @@ class UserService extends BaseService
             $user = $this->createUser([
                 'type' => $data['type'],
                 'name' => $data['name'],
+                'username' => $data['username'],
                 'email' => $data['email'],
                 'password' => $data['password'],
                 'email_verified_at' => isset($data['email_verified']) && $data['email_verified'] === '1' ? now() : null,
@@ -161,6 +163,7 @@ class UserService extends BaseService
             $user->update([
                 'type' => $user->isMasterAdmin() ? $this->model::TYPE_ADMIN : $data['type'] ?? $user->type,
                 'name' => $data['name'],
+                'username' => $data['username'],
                 'email' => $data['email'],
             ]);
 
@@ -194,6 +197,7 @@ class UserService extends BaseService
     public function updateProfile(User $user, array $data = []): User
     {
         $user->name = $data['name'] ?? null;
+        $user->username = $data['username'] ?? null;
 
         if ($user->canChangeEmail() && $user->email !== $data['email']) {
             $user->email = $data['email'];
@@ -325,6 +329,7 @@ class UserService extends BaseService
         return $this->model::create([
             'type' => $data['type'] ?? $this->model::TYPE_USER,
             'name' => $data['name'] ?? null,
+            'username' => $data['username'] ?? null,
             'email' => $data['email'] ?? null,
             'password' => $data['password'] ?? null,
             'provider' => $data['provider'] ?? null,

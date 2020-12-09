@@ -1,4 +1,4 @@
-<div class="table-responsive">
+<div class="table-responsive mx-0">
     <table class="table table-striped table-hover table-bordered mb-0">
         <tr>
             <th>@lang('Type')</th>
@@ -13,6 +13,11 @@
         <tr>
             <th>@lang('Name')</th>
             <td>{{ $logged_in_user->name }}</td>
+        </tr>
+
+        <tr>
+            <th>Username</th>
+            <td>{{ $logged_in_user->username }}</td>
         </tr>
 
         <tr>

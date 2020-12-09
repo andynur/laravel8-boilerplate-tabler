@@ -66,12 +66,15 @@ class UsersTable extends TableComponent
     public function columns(): array
     {
         return [
-            Column::make(__('Type'), 'type')
-                ->sortable()
-                ->format(function (User $model) {
-                    return view('backend.auth.user.includes.type', ['user' => $model]);
-                }),
+            // Column::make(__('Type'), 'type')
+            //     ->sortable()
+            //     ->format(function (User $model) {
+            //         return view('backend.auth.user.includes.type', ['user' => $model]);
+            //     }),
             Column::make(__('Name'), 'name')
+                ->searchable()
+                ->sortable(),
+            Column::make(__('Username'), 'username')
                 ->searchable()
                 ->sortable(),
             Column::make(__('E-mail'), 'email')
@@ -80,18 +83,18 @@ class UsersTable extends TableComponent
                 ->format(function (User $model) {
                     return $this->mailto($model->email);
                 }),
-            Column::make(__('Verified'), 'email_verified_at')
-                ->sortable()
-                ->format(function (User $model) {
-                    return view('backend.auth.user.includes.verified', ['user' => $model]);
-                }),
-            Column::make(__('2FA'))
-                ->sortable(function ($builder, $direction) {
-                    return $builder->orderBy('two_factor_auth_count', $direction);
-                })
-                ->format(function (User $model) {
-                    return view('backend.auth.user.includes.2fa', ['user' => $model]);
-                }),
+            // Column::make(__('Verified'), 'email_verified_at')
+            //     ->sortable()
+            //     ->format(function (User $model) {
+            //         return view('backend.auth.user.includes.verified', ['user' => $model]);
+            //     }),
+            // Column::make(__('2FA'))
+            //     ->sortable(function ($builder, $direction) {
+            //         return $builder->orderBy('two_factor_auth_count', $direction);
+            //     })
+            //     ->format(function (User $model) {
+            //         return view('backend.auth.user.includes.2fa', ['user' => $model]);
+            //     }),
             Column::make(__('Roles'), 'roles_label')
                 ->searchable(function ($builder, $term) {
                     return $builder->orWhereHas('roles', function ($query) use ($term) {
@@ -101,15 +104,15 @@ class UsersTable extends TableComponent
                 ->format(function (User $model) {
                     return $this->html($model->roles_label);
                 }),
-            Column::make(__('Additional Permissions'), 'permissions_label')
-                ->searchable(function ($builder, $term) {
-                    return $builder->orWhereHas('permissions', function ($query) use ($term) {
-                        return $query->where('name', 'like', '%'.$term.'%');
-                    });
-                })
-                ->format(function (User $model) {
-                    return $this->html($model->permissions_label);
-                }),
+            // Column::make(__('Additional Permissions'), 'permissions_label')
+            //     ->searchable(function ($builder, $term) {
+            //         return $builder->orWhereHas('permissions', function ($query) use ($term) {
+            //             return $query->where('name', 'like', '%'.$term.'%');
+            //         });
+            //     })
+            //     ->format(function (User $model) {
+            //         return $this->html($model->permissions_label);
+            //     }),
             Column::make(__('Actions'))
                 ->format(function (User $model) {
                     return view('backend.auth.user.includes.actions', ['user' => $model]);

@@ -41,7 +41,7 @@ trait UserAttribute
         }
 
         if (! $this->permissions->count()) {
-            return 'None';
+            return '-';
         }
 
         return collect($this->getPermissionDescriptions())
@@ -54,11 +54,11 @@ trait UserAttribute
     public function getRolesLabelAttribute()
     {
         if ($this->hasAllAccess()) {
-            return 'All';
+            return 'admin';
         }
 
         if (! $this->roles->count()) {
-            return 'None';
+            return '-';
         }
 
         return collect($this->getRoleNames())

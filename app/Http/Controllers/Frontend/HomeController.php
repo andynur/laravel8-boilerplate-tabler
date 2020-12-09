@@ -14,6 +14,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('frontend.index');
+        $redirect = 'login';
+        if (auth()->check()) {
+            if (auth()->user()->isAdmin()) {
+                $redirect = 'admin/dashboard';
+            }
+
+            if (auth()->user()->isUser()) {
+                $redirect = 'dashboard';
+            }
+        }
+
+        return redirect($redirect);
     }
 }

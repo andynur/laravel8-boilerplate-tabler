@@ -1,7 +1,7 @@
 <div class="card">
     @if (isset($header))
         <div class="card-header">
-            {{ $header }}
+            <h3 class="mb-0">{{ $header }}</h3>
 
             @if (isset($headerActions))
                 <div class="d-inline-block float-right">

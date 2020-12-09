@@ -37,7 +37,7 @@ return [
             /*
              * Whether or not admins need 2FA enabled to visit the backend
              */
-            'admin_requires_2fa' => env('ADMIN_REQUIRES_2FA', true),
+            'admin_requires_2fa' => env('ADMIN_REQUIRES_2FA', false),
 
             /*
              * Whether or not a user can change their email address after
@@ -70,7 +70,7 @@ return [
              * The regular delete button will still exist, and will soft delete the user
              * but the permanently deleted button on the 'deleted users' screen will be hidden.
              */
-            'permanently_delete' => false,
+            'permanently_delete' => true,
 
             /*
              * Whether or not the register route and view are active
@@ -156,31 +156,31 @@ return [
          * Commenting out languages will make them unavailable to the user
          */
         'languages' => [
-            'ar' => ['name' => 'Arabic', 'rtl' => true],
-            'az' => ['name' => 'Azerbaijan', 'rtl' => false],
-            'zh' => ['name' => 'Chinese Simplified', 'rtl' => false],
-            'zh-TW' => ['name' => 'Chinese Traditional', 'rtl' => false],
-            'cs' => ['name' => 'Czech', 'rtl' => false],
-            'da' => ['name' => 'Danish', 'rtl' => false],
-            'de' => ['name' => 'German', 'rtl' => false],
-            'el' => ['name' => 'Greek', 'rtl' => false],
+            // 'ar' => ['name' => 'Arabic', 'rtl' => true],
+            // 'az' => ['name' => 'Azerbaijan', 'rtl' => false],
+            // 'zh' => ['name' => 'Chinese Simplified', 'rtl' => false],
+            // 'zh-TW' => ['name' => 'Chinese Traditional', 'rtl' => false],
+            // 'cs' => ['name' => 'Czech', 'rtl' => false],
+            // 'da' => ['name' => 'Danish', 'rtl' => false],
+            // 'de' => ['name' => 'German', 'rtl' => false],
+            // 'el' => ['name' => 'Greek', 'rtl' => false],
             'en' => ['name' => 'English', 'rtl' => false],
-            'es' => ['name' => 'Spanish', 'rtl' => false],
-            'fa' => ['name' => 'Persian', 'rtl' => true],
-            'fr' => ['name' => 'French', 'rtl' => false],
-            'he' => ['name' => 'Hebrew', 'rtl' => true],
+            // 'es' => ['name' => 'Spanish', 'rtl' => false],
+            // 'fa' => ['name' => 'Persian', 'rtl' => true],
+            // 'fr' => ['name' => 'French', 'rtl' => false],
+            // 'he' => ['name' => 'Hebrew', 'rtl' => true],
             'id' => ['name' => 'Indonesian', 'rtl' => false],
-            'it' => ['name' => 'Italian', 'rtl' => false],
-            'ja' => ['name' => 'Japanese', 'rtl' => false],
-            'nl' => ['name' => 'Dutch', 'rtl' => false],
-            'no' => ['name' => 'Norwegian', 'rtl' => false],
-            'pl' => ['name' => 'Polish', 'rtl' => false],
-            'pt_BR' => ['name' => 'Brazilian Portuguese', 'rtl' => false],
-            'ru' => ['name' => 'Russian', 'rtl' => false],
-            'sv' => ['name' => 'Swedish', 'rtl' => false],
-            'th' => ['name' => 'Thai', 'rtl' => false],
-            'tr' => ['name' => 'Turkish', 'rtl' => false],
-            'uk' => ['name' => 'Ukrainian', 'rtl' => false],
+            // 'it' => ['name' => 'Italian', 'rtl' => false],
+            // 'ja' => ['name' => 'Japanese', 'rtl' => false],
+            // 'nl' => ['name' => 'Dutch', 'rtl' => false],
+            // 'no' => ['name' => 'Norwegian', 'rtl' => false],
+            // 'pl' => ['name' => 'Polish', 'rtl' => false],
+            // 'pt_BR' => ['name' => 'Brazilian Portuguese', 'rtl' => false],
+            // 'ru' => ['name' => 'Russian', 'rtl' => false],
+            // 'sv' => ['name' => 'Swedish', 'rtl' => false],
+            // 'th' => ['name' => 'Thai', 'rtl' => false],
+            // 'tr' => ['name' => 'Turkish', 'rtl' => false],
+            // 'uk' => ['name' => 'Ukrainian', 'rtl' => false],
         ],
     ],
 

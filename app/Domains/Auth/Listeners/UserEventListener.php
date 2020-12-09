@@ -49,6 +49,7 @@ class UserEventListener
                 'user' => [
                     'type' => $event->user->type,
                     'name' => $event->user->name,
+                    'username' => $event->user->username,
                     'email' => $event->user->email,
                     'active' => $event->user->active,
                     'email_verified_at' => $event->user->email_verified_at,
@@ -70,6 +71,7 @@ class UserEventListener
                 'user' => [
                     'type' => $event->user->type,
                     'name' => $event->user->name,
+                    'username' => $event->user->username,
                     'email' => $event->user->email,
                 ],
                 'roles' => $event->user->roles->count() ? $event->user->roles->pluck('name')->implode(', ') : 'None',
